@@ -17,11 +17,8 @@ chck:{
 
 getAllTickers:{
   c:.j.k .Q.hg`:https://api.kucoin.com/api/v1/market/allTickers;
-  code:"J"$c`code;
-  =[code;CODE_INIT];
-  d:select data`ticker from c;
-  r:d[`x]; 
-  r
+  code:"J"$c`code; =[code;CODE_INIT];
+  d:select data`ticker from c; r:d[`x]; r
  }
 
 getStatus:{
@@ -30,6 +27,13 @@ getStatus:{
   ~[t[`data]`status;"open"]
  }
 
+getL1Data:{[sym]
+  t:.j.k .Q.hg `$":https://api.kucoin.com/api/v1/market/orderbook/level1?symbol=",sym;
+  u:select data from t; u[`data]
+ }
 
+getL2Data:{[sym]
+  
+ }
 \d .
 // eof
