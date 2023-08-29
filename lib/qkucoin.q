@@ -3,6 +3,7 @@
 CODE_INIT:200000
 bls:`TRUE`FALSE
 
+input:{1"> "; x:read0 0}
 deb:{string[.z.p]," ### DEBUG ### ",x}
 out:{string[.z.p]," ### INFO ### ",x}
 err:{string[.z.p]," ### ERROR ### ",x}
@@ -21,6 +22,12 @@ getAllTickers:{
   d:select data`ticker from c;
   r:d[`x]; 
   r
+ }
+
+getStatus:{
+  a:.j.k .Q.hg`:https://api.kucoin.com/api/v1/status;
+  t:select data from a;
+  ~[t[`data]`status;"open"]
  }
 
 
