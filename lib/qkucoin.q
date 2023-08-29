@@ -3,6 +3,10 @@
 CODE_INIT:200000
 bls:`TRUE`FALSE
 
+deb:{string[.z.p]," ### DEBUG ### ",x}
+out:{string[.z.p]," ### INFO ### ",x}
+err:{string[.z.p]," ### ERROR ### ",x}
+
 / init check for remote API connection
 chck:{ 
   tmsp:.j.k .Q.hg`:https://api.kucoin.com/api/v1/timestamp;  
